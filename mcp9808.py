@@ -35,7 +35,13 @@ class MCP9808(object):
         """
         Sends the given bufer object over I2C to the sensor.
         """
-        self._i2c.send(buf, self._addr)
+        if isinstance(buf, int):
+            b = bytearray()
+            b.append(buf)
+        else:
+            b = buf
+
+        self._i2c.writeto(self._addr, b)
 
     def _recv(self, n):
         """
@@ -43,7 +49,7 @@ class MCP9808(object):
         as an argument.
         Returns a bytearray containing the result.
         """
-        return self._i2c.recv(n, self._addr)
+        return self._i2c.readfrom(self._addr, n)
 
     def _check_device(self):
         """
