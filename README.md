@@ -19,13 +19,13 @@ change a few of them.
 You need to upload the python code to the board. Any method should work so you
 can choose between ampy, WebREPL, rshell or mpfshell. I prefer the last one so:
 
-<code>
+<pre>
 mpfshell
 > open ttyUSB0
 > put main.py
 > put mcp9808.py
 > exit
-</code>
+</pre>
 
 Connect to the serial console to see the output.
 
