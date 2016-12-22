@@ -1,3 +1,4 @@
+# micropython-mcp9808
 from machine import I2C
 
 R_CFG    = const(1)
